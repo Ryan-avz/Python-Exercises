@@ -1,2 +1,9 @@
 # Python-Exercises
-several simple programs in Python
+
+Simple Python exercises created while studying programming fundamentals.
+
+## Topics practiced
+- Variables
+- Mathematical operators
+- Conditionals
+- User input
