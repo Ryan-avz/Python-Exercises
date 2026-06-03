@@ -1,4 +1,4 @@
-# calculator variables
+# only +, -, * and / working 
 quest = input('Choose an arithmetic operator to use: ')
 
 # THE AZTEC CALCULATOR
