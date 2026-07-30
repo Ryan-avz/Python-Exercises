@@ -6,16 +6,36 @@ reset = "\033[0m"
 purple = "\033[38;5;141m"
 cyan = "\033[36m"
 
+def game_settings():
 
-def guessing_game(rounds):
+
+    difficulty = input(
+        "Choose the difficulty:\n"
+        "A - Easy\n"
+        "B - Medium\n"
+        "C - Hard\n"
+        ">>"
+    ).upper()
+
+    if difficulty == "A":
+        limit = 5
+        return limit  #20% chance of guessing correctly
+    elif difficulty == "B":
+        limit = 10
+        return limit # 10% chance
+    elif difficulty == "C":
+        limit = 20
+        return limit  # 5% chance
+limit = game_settings()
+
+def guessing_game(limit):
     i = 0
     wins = 0
     losses = 0
 
     while i == 0:
-        numbers = list(range(0, rounds + 1))
-        random_number = random.choice(numbers)
 
+        random_number = random.randint(1, limit)
         guess = int(input("Which number did the computer choose? "))
 
         if guess == random_number:
@@ -32,37 +52,4 @@ def guessing_game(rounds):
             print("You Lose!!")
             i += 1
 
-
-def game_settings():
-    difficulty = input(
-        "Choose the difficulty:\n"
-        "A - Easy\n"
-        "B - Medium\n"
-        "C - Hard\n"
-        ">> "
-    ).upper()
-
-    gamemode = input(
-        "Choose the game mode:\n"
-        "A | One Round\n"
-        "B | Best of Three\n"
-        "C | Custom\n"
-        ">> "
-    ).upper()
-
-    if gamemode == "A":
-        rounds = 1
-    elif gamemode == "B":
-        rounds = 3
-    elif gamemode == "C":
-        rounds = int(input(f"Choose the {purple}number of rounds{reset}: "))
-
-    if difficulty == "A":
-        guessing_game(rounds)  # 20% chance of guessing correctly
-    elif difficulty == "B":
-        guessing_game(rounds)  # 10% chance
-    elif difficulty == "C":
-        guessing_game(rounds)  # 5% chance
-
-
-game_settings()
+guessing_game(limit)
