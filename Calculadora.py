@@ -1,46 +1,45 @@
+def calculations(operator: str, a: float, b: float):
+    if operator == '1':
+        return a + b
+    elif operator == '2':
+        return a - b
+    elif operator == '3':
+        return a * b
+    elif operator == '4':
+        return a / b
+    elif operator == '5':
+        return a ** b
 
-i = 0
-# THE AZTEC CALCULATOR
-while i < 1:
 
- quest = input('| addition (+) \n'
-               '| subtraction (-) \n'
-               '| multiplication (*) \n'
-               '| division (/) \n'
-               'Choose an arithmetic operator to use: ')
+def menu():
+    print('=' * 30)
+    print()
 
- if quest == "*":
-    num1 = int(input('Enter a number: '))
-    num2 = int(input('Enter another number: '))
-    calc3 = (num1 * num2)
-    print(calc3)
-    i = int(input('0 : continue \n'
-                  '1 : stop \n '))
+    i = 0
 
- elif quest == "/":
-    num1 = int(input('Enter a number: '))
-    num2 = int(input('Enter another number: '))
-    calc4 = (num1 / num2)
-    print(calc4)
-    i = int(input('0 : continue \n'
-                  '1 : stop \n '))
+    while i == 0:
+        ask = input(
+            'Mathematical Operator to be used:\n'
+            '[1] - Addition\n'
+            '[2] - Subtraction\n'
+            '[3] - Multiplication\n'
+            '[4] - Division\n'
+            '[5] - Exponentiation\n'
+            '[6] - Exit\n'
+            '>>| '
+        )
 
- elif quest == "-":
-    num1 = int(input('Enter a number: '))
-    num2 = int(input('Enter another number: '))
-    calc5 = (num1 - num2)
-    print(calc5)
-    i = int(input('0 : continue \n'
-                  '1 : stop \n '))
+        if ask == '6':
+            i += 1
+            print('Calculation ended!')
 
- elif quest == "+":
-    num1 = int(input('Enter a number: '))
-    num2 = int(input('Enter another number: '))
-    calc6 = (num1 + num2)
-    print(calc6)
-    i = int(input('0 : continue \n'
-                  '1 : stop \n '))
+        else:
+            a = float(input('Enter a number: '))
+            b = float(input('Enter another number: '))
 
-else:
-    print('Stopped!')
+            result = calculations(ask, a, b)
 
+            print(f'Result: {result}')
+
+
+menu()
